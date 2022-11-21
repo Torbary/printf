@@ -8,4 +8,5 @@ void _putchar(char ch);
 
 int _printf(const char *fmt, ...);
 
+int _strlen(const char* str);
 #endif
