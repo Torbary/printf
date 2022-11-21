@@ -1,5 +1,11 @@
 #include "main.h"
-/* todo handle _printf return value */
+/**
+  * _printf - print the character to the stdout
+  * @str: string to print the characters
+  * @...: varaidic parameters (unknown)
+  *
+  * Return: number of characters printed
+  */
 int _printf(const char *str, ...)
 {
 	va_list args;
@@ -8,6 +14,8 @@ int _printf(const char *str, ...)
 	char *s;
 	int len = _strlen(fmt);
 	int i = 0;
+	int count = 0;
+	int value = 0;
 
 	va_start(args, fmt);
 	while (fmt[i])
@@ -24,8 +32,7 @@ int _printf(const char *str, ...)
 					break;
 				case 'c':
 					i++;
-					c = (cha
-							r)va_arg(args, int);
+					c = (char)va_arg(args, int);
 					_putchar(c);
 					break;
 				default:
@@ -36,7 +43,19 @@ int _printf(const char *str, ...)
 		else
 			_putchar(fmt[i]);
 		i++;
+
+		if (fmt[i + 1] == '\0')
+		{
+			break;
+		}
+		if (fmt[i + 1] != '\0')
+		{
+			value = write(1, &fmt[i + 1], 1);
+			count = count + value;
+			i = i + 2;
+			continue;
+		}
 	}
 	va_end(args);
-	return (0);
+	return (count);
 }
