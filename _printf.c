@@ -70,7 +70,7 @@ int _printf(const char *fmt, ...)
 				case 's':
 					i++;
 					s = va_arg(args, char *);
-					count += _print_str(s) - 1;
+					count += _print_str(s);
 					break;
 				case 'c':
 					i++;
