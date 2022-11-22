@@ -1,6 +1,35 @@
 #include "main.h"
 
 /**
+ * _strlen - finds the no. of character in a string
+ * @str: string passed
+ * Return: length of str
+ */
+
+int _strlen(const char *str)
+{
+	int len = 0;
+
+	if (!str)
+		return (0);
+	while (str[len])
+		len++;
+	return (len);
+}
+
+/**
+ * _putchar - writes a character to stdout
+ * @ch: character to write
+ * Return: void
+ */
+
+void _putchar(char ch)
+{
+	if (ch)
+		write(1, &ch, 1);
+}
+
+/**
  * _print_str - prints a string to the screen
  * @str: string given
  * Return: void
