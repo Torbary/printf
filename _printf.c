@@ -58,7 +58,7 @@ int _printf(const char *fmt, ...)
 	va_list args;
 	char *s;
 	int len = _strlen(fmt);
-	int i = 0, count = 0, value = 0, num = 0;
+	int i = 0, count = 0;
 
 	va_start(args, fmt);
 	while (fmt[i])
